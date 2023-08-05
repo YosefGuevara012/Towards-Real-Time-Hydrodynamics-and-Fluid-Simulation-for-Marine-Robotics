@@ -29,7 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 2.38419e-07, -0.00143337)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.964345, 0.264647, 0, -0.264647, 0.964345, 0.252318, 1.61011, 3.15394)
+transform = Transform3D(1, 0, 0, 0, 0.999784, 0.020768, 0, -0.020768, 0.999784, -0.118606, 0.439557, 4.45023)
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313592, 0, -0.0121148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 0.255391, -0.0121148)
+float_force = 10.0
