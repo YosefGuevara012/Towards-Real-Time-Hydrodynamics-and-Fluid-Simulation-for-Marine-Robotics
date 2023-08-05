@@ -22,7 +22,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	submerged = false
-	var depth = water_height - global_position.y
+	var depth = water.get_height(global_position) - global_position.y
 
 	if depth > 0:
 		submerged = true

@@ -77,7 +77,7 @@ float waveheight(vec2 offset, int mode){
 void vertex(){
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	float height_mix = waveheight(vec2(0.0,0.0),2);
-	height = texture(wave, world_pos.xz / noise_scale + TIME * time_scale).r;
+	height = texture(wave, world_pos.xz / noise_scale + wave_time * wave_speed).r;
 // VERTEX.y += height * height_scale;
     VERTEX.y += height_mix * height_scale;
 
