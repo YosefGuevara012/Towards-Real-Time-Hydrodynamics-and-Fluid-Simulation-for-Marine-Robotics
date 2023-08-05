@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2qf3ij1tyepq"]
+
+[ext_resource type="PackedScene" uid="uid://dlnlg3km0j6vo" path="res://Scenes/WaterPlane.tscn" id="1_o0yb8"]
+[ext_resource type="Texture2D" uid="uid://csgkmtkowgdj8" path="res://Resources/sky/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="3_1qn3h"]
+[ext_resource type="PackedScene" uid="uid://c2c8v1k0jatfv" path="res://Scenes/nomad_filter.tscn" id="3_8fqyq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
+panorama = ExtResource("3_1qn3h")
+
+[sub_resource type="Sky" id="Sky_ywn7r"]
+sky_material = SubResource("PanoramaSkyMaterial_d3i48")
+
+[sub_resource type="Environment" id="Environment_as2h3"]
+background_mode = 2
+sky = SubResource("Sky_ywn7r")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_as2h3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.00926294, 10.1113, 12.4286)
+
+[node name="WaterPlane" parent="." instance=ExtResource("1_o0yb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 2.38419e-07, -0.00143337)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.964345, 0.264647, 0, -0.264647, 0.964345, 0.252318, 1.61011, 3.15394)
+
+[node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313592, 0, -0.0121148)
