@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2qf3ij1tyepq"]
+[gd_scene load_steps=8 format=3 uid="uid://d2qf3ij1tyepq"]
 
 [ext_resource type="PackedScene" uid="uid://dlnlg3km0j6vo" path="res://Scenes/WaterPlane.tscn" id="1_o0yb8"]
 [ext_resource type="Texture2D" uid="uid://csgkmtkowgdj8" path="res://Resources/sky/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="3_1qn3h"]
 [ext_resource type="PackedScene" uid="uid://c2c8v1k0jatfv" path="res://Scenes/nomad_filter.tscn" id="3_8fqyq"]
+[ext_resource type="Script" path="res://Scenes/WaterPlane.gd" id="3_aw4af"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
 panorama = ExtResource("3_1qn3h")
@@ -27,10 +28,11 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="WaterPlane" parent="." instance=ExtResource("1_o0yb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 2.38419e-07, -0.00143337)
+script = ExtResource("3_aw4af")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999784, 0.020768, 0, -0.020768, 0.999784, -0.118606, 0.439557, 4.45023)
+transform = Transform3D(1, 0, 0, 0, 0.918467, 0.395497, 0, -0.395497, 0.918467, -0.118606, 1.95199, 4.45023)
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 0.255391, -0.0121148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, -0.090821, -0.0121148)
 float_force = 10.0

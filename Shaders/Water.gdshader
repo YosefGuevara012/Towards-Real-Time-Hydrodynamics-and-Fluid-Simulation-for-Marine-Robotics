@@ -1,38 +1,38 @@
 shader_type spatial;
 
-uniform sampler2D DEPTH_TEXTURE : hint_depth_texture;
-// uniform sampler2D DEPTH_TEXTURE : hint_depth_texture
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 
 uniform vec3 albedo: source_color;
 uniform vec3 albedo2: source_color;
+uniform vec4 color_deep : source_color;
+uniform vec4 color_shallow : source_color;
+
 uniform float metallic: hint_range(0.0, 1.0) = 0;
 uniform float roughness: hint_range(0.0, 1.0) = 0.02;
 
 uniform sampler2D texture_normal;
 uniform sampler2D texture_normal2;
+
 uniform sampler2D wave;
 uniform sampler2D wave_bump;
 
-
-
-
+uniform float wave_time = 0;
 uniform vec2 wave_direction = vec2(2.0, 0.0);
 uniform vec2 wave_direction2 = vec2(0.0, 0.1);
-
 uniform float time_scale : hint_range(0.0, 0.2, 0.005) = 0.025;
+uniform float wave_speed = 2.0;
 uniform float noise_scale = 10.0;
 uniform float height_scale = 0.15;
 
 // Deep varaibles
-uniform vec4 color_deep: source_color;
-uniform vec4 color_shallow: source_color;
+
 uniform float beers_law = 2.0;
 uniform float depth_offset = -0.75;
 
 // Edge detection code
 
-uniform float edge_scale = 0.1;
+uniform float edge_scale = 0.3;
 uniform float near = 1.0;
 uniform float far = 100.0;
 uniform vec3 edge_color : source_color;
@@ -46,7 +46,7 @@ float fresnel(float amount, vec3 normal, vec3 view){
 }
 
 float edge(float depth){
-	depth = 2.0 * depth - 1.0;
+//	depth = 2.0 * depth - 1.0;
 	return near * far / (far + depth * (near - far));
 }
 
@@ -76,12 +76,10 @@ float waveheight(vec2 offset, int mode){
 
 void vertex(){
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	
 	float height_mix = waveheight(vec2(0.0,0.0),2);
-	
 	height = texture(wave, world_pos.xz / noise_scale + TIME * time_scale).r;
 // VERTEX.y += height * height_scale;
-   VERTEX.y += height_mix * height_scale;
+    VERTEX.y += height_mix * height_scale;
 
 
 	
