@@ -1,5 +1,2 @@
-res://Scenes/WaterPlane.tscn
 res://Shaders/Water.gdshader
 res://Shaders/Water.tres
-res://Scenes/Map.tscn
-res://Scenes/nomad_filter.tscn

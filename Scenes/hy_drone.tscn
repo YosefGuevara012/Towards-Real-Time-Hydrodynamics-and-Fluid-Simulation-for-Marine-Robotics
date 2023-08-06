@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqbwou0bt8i2w"]
+
+[ext_resource type="PackedScene" uid="uid://ci05md7g76hm0" path="res://Blender_Meshes/USV/HyDrone.blend" id="1_cw2m4"]
+
+[node name="HyDrone" instance=ExtResource("1_cw2m4")]

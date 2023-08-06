@@ -101,6 +101,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_02x4o")
 
 [node name="nomad_filter" type="RigidBody3D"]
+mass = 2.9
 script = ExtResource("1_v7jyn")
 float_force = 3.0
 
