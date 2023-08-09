@@ -1,7 +1,11 @@
 Camera3D
-Marker3D
-Node3D
-CollisionShape3D
+XRCamera3D
 VehicleBody3D
-MeshInstance3D
 RigidBody3D
+CharacterBody3D
+Node3D
+SpringArm3D
+Node
+Marker3D
+CollisionShape3D
+MeshInstance3D

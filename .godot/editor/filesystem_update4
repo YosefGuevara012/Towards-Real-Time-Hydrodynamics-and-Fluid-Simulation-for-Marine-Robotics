@@ -1,6 +1,8 @@
-res://Scenes/Map.tscn
+res://Scenes/hy_drone.tscn
 res://Shaders/Water.gdshader
 res://Shaders/Water.tres
+res://Scenes/Map.tscn
 res://Scenes/WaterPlane.tscn
-res://Scenes/hy_drone.tscn
+res://Scenes/Camera3D.gd
+res://autoload/camera_transition.tscn
 res://Scenes/hy_drone.gd

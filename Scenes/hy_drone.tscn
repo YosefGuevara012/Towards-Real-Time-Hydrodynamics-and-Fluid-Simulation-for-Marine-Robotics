@@ -1,6 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://c1dtcj0m6bpou"]
+[gd_scene load_steps=60 format=3 uid="uid://c1dtcj0m6bpou"]
 
 [ext_resource type="Script" path="res://Scenes/hy_drone.gd" id="1_vj1s2"]
+[ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="2_adnq8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hl3l4"]
 size = Vector3(0.73, 0.19, 1.16)
@@ -937,6 +938,7 @@ shadow_mesh = SubResource("ArrayMesh_gp6rv")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0616818, 0)
 mass = 25.0
 script = ExtResource("1_vj1s2")
+float_force = 10.0
 
 [node name="hull_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000248671, 0.0341022, -0.0622423)
@@ -1065,6 +1067,7 @@ mesh = SubResource("ArrayMesh_by8rq")
 skeleton = NodePath("")
 
 [node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0424626, 0)
 
 [node name="Probe" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255553, -0.0612083, -0.493125)
@@ -1108,8 +1111,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186, -0.061, 0.518)
 [node name="Probe14" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -0.061, 0.518)
 
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, -9.47311e-16, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 7.10543e-15, 0.64708, 6.21176e-22)
+collision_mask = 2
+spring_length = 1.5
+script = ExtResource("2_adnq8")
+
+[node name="ClippedCamera" type="Camera3D" parent="SpringArm3D"]
+
 [node name="CamPose" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.907777, 0.419452, 0, -0.419452, 0.907777, 0, 0.781452, 1.05394)
-
-[node name="Camera3D" type="Camera3D" parent="CamPose"]
-transform = Transform3D(1, -2.38564e-08, -7.11825e-09, 2.08826e-08, 0.959452, -0.281873, 1.35541e-08, 0.281873, 0.959452, -7.10543e-15, -0.234528, -0.108367)

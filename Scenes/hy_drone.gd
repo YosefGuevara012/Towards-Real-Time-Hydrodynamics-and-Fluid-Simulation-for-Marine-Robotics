@@ -11,7 +11,15 @@ extends RigidBody3D
 
 #Vehicle controller variables
 var velocity = Vector3(0,0,0)
-var speed = 3.0
+var speed = 1
+#var horse_power  = 200
+#var accel_speed = 20
+#
+#var steer_angle = deg_to_rad(30)
+#var steer_speed = 3
+#
+#var brake_power = 40
+#var brake_speed = 40
 
 # Water Effect varibles
 var submerged := false
@@ -29,15 +37,24 @@ func _physics_process(delta):
 	
 	#Vehicle controller
 	
+#	var throttle_input = -Input.get_action_strength("ui_up") + Input.get_action_strength("ui_down")
+#	engine_force = lerp(engine_force,throttle_input * horse_power, accel_speed * delta)
+#
+#	var steer_input = -Input.get_action_strength("ui_right") + Input.get_action_strength("ui_left")
+#	steering = lerp(steering, steer_input * steer_angle, steer_speed * delta)
+	
+
+	
+
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = 0.5
+		velocity.x = 1
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = -0.5
+		velocity.x = -1
 	if Input.is_action_pressed("ui_up"):
-		velocity.z = -0.5
+		velocity.z = -1
 	if Input.is_action_pressed("ui_down"):
-		velocity.z = 0.5
-		
+		velocity.z = 1
+
 	move_and_collide(velocity)
 	
 	#Water affect
