@@ -934,9 +934,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gp6rv")
 
 [node name="HyDrone" type="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0616818, 0)
 mass = 25.0
 script = ExtResource("1_vj1s2")
-float_force = 400.0
 
 [node name="hull_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000248671, 0.0341022, -0.0622423)
@@ -1107,3 +1107,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186, -0.061, 0.518)
 
 [node name="Probe14" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33, -0.061, 0.518)
+
+[node name="CamPose" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.907777, 0.419452, 0, -0.419452, 0.907777, 0, 0.781452, 1.05394)
+
+[node name="Camera3D" type="Camera3D" parent="CamPose"]
+transform = Transform3D(1, -2.38564e-08, -7.11825e-09, 2.08826e-08, 0.959452, -0.281873, 1.35541e-08, 0.281873, 0.959452, -7.10543e-15, -0.234528, -0.108367)

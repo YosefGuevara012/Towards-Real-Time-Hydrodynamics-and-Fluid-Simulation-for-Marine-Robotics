@@ -9,11 +9,16 @@ extends RigidBody3D
 
 @onready var probes = $ProbeContainer.get_children()
 
+#Vehicle controller variables
+var velocity = Vector3(0,0,0)
+var speed = 3.0
+
+# Water Effect varibles
 var submerged := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +26,21 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
+	
+	#Vehicle controller
+	
+	if Input.is_action_pressed("ui_right"):
+		velocity.x = 0.5
+	if Input.is_action_pressed("ui_left"):
+		velocity.x = -0.5
+	if Input.is_action_pressed("ui_up"):
+		velocity.z = -0.5
+	if Input.is_action_pressed("ui_down"):
+		velocity.z = 0.5
+		
+	move_and_collide(velocity)
+	
+	#Water affect
 	submerged = false
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y 
