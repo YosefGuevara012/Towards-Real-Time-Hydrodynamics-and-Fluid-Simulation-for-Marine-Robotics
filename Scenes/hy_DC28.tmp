@@ -935,7 +935,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gp6rv")
 
 [node name="HyDrone" type="VehicleBody3D"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.0616818, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0616818, 0)
 script = ExtResource("1_vj1s2")
 float_force = 200.0
 
@@ -1117,5 +1117,3 @@ spring_length = 1.5
 script = ExtResource("2_adnq8")
 
 [node name="ClippedCamera" type="Camera3D" parent="SpringArm3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

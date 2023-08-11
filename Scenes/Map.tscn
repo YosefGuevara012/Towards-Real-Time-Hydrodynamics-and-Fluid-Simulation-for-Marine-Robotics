@@ -36,5 +36,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 1.03525, -0.012114
 float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_n0lx7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45466, 0.952991, -0.983316)
-float_force = 56.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45466, 0.952991, -1.31397)
+float_force = 50.0
