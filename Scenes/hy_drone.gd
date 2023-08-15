@@ -7,7 +7,8 @@ extends RigidBody3D
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = get_node('/root/World/WaterPlane')
 
-@onready var probes = $ProbeContainer.get_children()
+# @onready var probes = $ProbeContainer.get_children()
+@onready var probes = $Collision/MeshInstance3D/hydrone_body/ProbeContainer.get_children()
 
 #Vehicle controller variables
 
@@ -74,11 +75,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
 		velocity.x = 0.00
 	elif Input.is_action_pressed("ui_right"):
-		rotation.y -= (deg_to_rad(STEER_ANGLE))
-		velocity.x = SPEED
+		$Collision/MeshInstance3D.rotate_x(deg_to_rad(STEER_ANGLE))
+		# velocity.x = SPEED
 	elif Input.is_action_pressed("ui_left"):
-		rotation.y += (deg_to_rad(STEER_ANGLE))
-		velocity.x = -SPEED
+		$Collision/MeshInstance3D.rotate_x(deg_to_rad(-STEER_ANGLE))
+		# velocity.x = -SPEED
 	else:
 		velocity.x = lerp(velocity.x, 0.0 ,0.05)
 		

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8xw0i60xr133"]
+
+[ext_resource type="Script" path="res://Capsule.gd" id="1_jgxem"]
+[ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="2_5cadh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6dm5o"]
+points = PackedVector3Array(-0.0626015, -0.266393, -0.240247, 0.0113916, 0.238035, 0.249442, 0.0848621, 0.279592, 0.232102, 0.115522, -0.401785, 0.160223, 0.203685, 0.325489, -0.121749, -0.241412, 0.297443, 0.0411093, -0.181422, -0.341134, 0.144839, 0.234523, -0.327267, -0.0331359, -0.0637235, 0.421361, -0.169056, -0.196702, -0.341945, -0.122349, 0.219114, 0.311636, 0.100419, 0.0420738, 0.488726, 0.0573973, -0.0341012, -0.48823, -0.0646353, 0.0997428, -0.294785, -0.224458, -0.0927739, 0.297759, -0.226763, -0.13668, 0.296132, 0.203875, -0.00346824, -0.238412, 0.24983, 0.18791, -0.294307, 0.158478, 0.0557924, 0.281545, -0.240602, -0.208646, 0.263958, -0.135262, -0.242278, -0.298492, -0.0332556, -0.139874, 0.454283, 0.0266681, -0.125092, -0.440333, 0.102654, 0.131824, -0.451389, -0.0636977, 0.186715, -0.263172, -0.164131, 0.146689, 0.435778, -0.0786007, 0.249831, 0.238321, -0.00344428, 0.0265531, 0.437506, 0.162353, -0.0772764, -0.295446, 0.232954, -0.193856, -0.249126, 0.15785, -0.0486367, -0.391155, -0.199082, -0.15034, -0.293997, -0.19445)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nf0s2"]
+radius = 0.25
+height = 1.0
+
+[node name="Capsule_test" type="RigidBody3D"]
+script = ExtResource("1_jgxem")
+float_force = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6dm5o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_nf0s2")
+skeleton = NodePath("../..")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CollisionShape3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.967617, 0.252424, 0, -0.252424, 0.967617, 0, -3.06281, -3.36172)
+collision_mask = 3
+script = ExtResource("2_5cadh")
+
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D/MeshInstance3D/SpringArm3D"]
+transform = Transform3D(-1, 8.74228e-08, -2.68657e-16, 4.03091e-08, 0.461083, -0.887357, -7.75752e-08, -0.887357, -0.461083, 0, -1.35316, -0.725482)
