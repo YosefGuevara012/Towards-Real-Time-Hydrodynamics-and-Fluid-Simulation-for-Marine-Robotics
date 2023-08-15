@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csgkmtkowgdj8" path="res://Resources/sky/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="3_1qn3h"]
 [ext_resource type="PackedScene" uid="uid://c2c8v1k0jatfv" path="res://Scenes/nomad_drifter.tscn" id="3_8fqyq"]
 [ext_resource type="Script" path="res://Scenes/WaterPlane.gd" id="3_aw4af"]
-[ext_resource type="PackedScene" uid="uid://b8xw0i60xr133" path="res://Scenes/capsule.tscn" id="6_4xqjm"]
+[ext_resource type="PackedScene" uid="uid://c1dtcj0m6bpou" path="res://Scenes/hy_drone.tscn" id="5_pqw8j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
 panorama = ExtResource("3_1qn3h")
@@ -35,5 +35,5 @@ script = ExtResource("3_aw4af")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 1.03525, -0.0121148)
 float_force = 15.0
 
-[node name="Capsule_test" parent="." instance=ExtResource("6_4xqjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597321, 0.392408, -1.43214)
+[node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84144, 0.674187, 0.475865)

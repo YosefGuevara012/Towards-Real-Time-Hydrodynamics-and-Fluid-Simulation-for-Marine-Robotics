@@ -8,7 +8,7 @@ extends RigidBody3D
 @onready var water = get_node('/root/World/WaterPlane')
 
 # @onready var probes = $ProbeContainer.get_children()
-@onready var probes = $Collision/MeshInstance3D/hydrone_body/ProbeContainer.get_children()
+@onready var probes = $ProbeContainer.get_children()
 
 #Vehicle controller variables
 
@@ -22,6 +22,7 @@ extends RigidBody3D
 #var brake_power = 40
 #var brake_speed = 40
 
+
 #------------USING A RIDIG BODY INSTEAD A VEHICLE NODE
 
 var acceleration = 0.05
@@ -29,7 +30,7 @@ var max_speed = 3.09 #Aprox 6 kn
 var velocity = Vector3.ZERO
 
 const SPEED = 0.05
-const STEER_ANGLE = 3
+const ROTATION_SPEED = 0.5
 
 
 # Water Effect varibles
@@ -63,28 +64,13 @@ func _physics_process(delta):
 #	var brake_input = Input.get_action_strength("BRAKE")
 #	brake = brake_input * brake_power
 	
-	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down"):	
-		velocity.z = 0.00
-	elif Input.is_action_pressed("ui_up"):
-		velocity.z = -SPEED
-	elif Input.is_action_pressed("ui_down"):
-		velocity.z = SPEED
-	else:
-		velocity.z = lerp(velocity.z, 0.0 ,0.05)
 	
-	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
-		velocity.x = 0.00
-	elif Input.is_action_pressed("ui_right"):
-		$Collision/MeshInstance3D.rotate_x(deg_to_rad(STEER_ANGLE))
-		# velocity.x = SPEED
-	elif Input.is_action_pressed("ui_left"):
-		$Collision/MeshInstance3D.rotate_x(deg_to_rad(-STEER_ANGLE))
-		# velocity.x = -SPEED
-	else:
-		velocity.x = lerp(velocity.x, 0.0 ,0.05)
-		
+	############################
+	get_input(delta)
+	move_and_collide(velocity)	
+	##############################
 	
-	move_and_collide(velocity)
+	
 
 	#Water affect
 	submerged = false
@@ -99,3 +85,20 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	if submerged:
 		state.linear_velocity *=  1 - water_drag
 		state.angular_velocity *= 1 - water_angular_drag 
+		
+
+func get_input(delta):
+	
+	var vy = velocity.y
+	velocity = Vector3.ZERO
+	
+	if Input.is_action_pressed("ui_up"):
+		velocity -= transform.basis.z * SPEED
+	if Input.is_action_pressed("ui_down"):
+		velocity += transform.basis.z * SPEED
+	if Input.is_action_pressed("ui_right"):
+		rotate_y(-ROTATION_SPEED * delta)
+	if Input.is_action_pressed("ui_left"):	
+		rotate_y(ROTATION_SPEED * delta)
+	
+	velocity.y = vy

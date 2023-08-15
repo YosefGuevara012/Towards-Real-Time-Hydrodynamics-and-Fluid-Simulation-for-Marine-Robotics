@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcqelp20cyv4a"]
+
+[ext_resource type="Shader" path="res://boat_waves.gdshader" id="1_wrtub"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ek1y"]
+shader = ExtResource("1_wrtub")
+shader_parameter/phase = 0.2
+shader_parameter/attenuation = 0.999
+shader_parameter/deltaUV = 3.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Simulation" type="SubViewport" parent="."]
+size = Vector2i(514, 514)
+
+[node name="ColorRect" type="ColorRect" parent="Simulation"]
+material = SubResource("ShaderMaterial_0ek1y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

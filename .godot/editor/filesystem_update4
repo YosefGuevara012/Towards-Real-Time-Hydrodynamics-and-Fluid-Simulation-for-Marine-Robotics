@@ -1,7 +1,9 @@
-res://Scenes/Map.tscn
+res://Scenes/hy_drone.tscn
 res://Shaders/Water.gdshader
 res://Shaders/Water.tres
+res://boat_waves.gdshader
+res://Scenes/hy_drone.gd
+res://Scenes/Map.tscn
 res://Scenes/WaterPlane.tscn
-res://Scenes/hy_drone.tscn
-res://Capsule.gd
 res://Scenes/capsule.tscn
+res://Scenes/node_3d.tscn
