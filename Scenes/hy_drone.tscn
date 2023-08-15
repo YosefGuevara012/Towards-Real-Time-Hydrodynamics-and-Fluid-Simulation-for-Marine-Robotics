@@ -934,7 +934,7 @@ shadow_mesh = SubResource("ArrayMesh_ojsnw")
 [node name="HyDrone" type="VehicleBody3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0616818, 0)
 script = ExtResource("1_vj1s2")
-float_force = 200.0
+float_force = 50.0
 
 [node name="collision_hull" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.00042e-09, 0.0303202, -0.059607)
