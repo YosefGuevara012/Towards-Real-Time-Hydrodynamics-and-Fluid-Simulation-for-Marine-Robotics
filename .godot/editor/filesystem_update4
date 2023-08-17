@@ -5,3 +5,5 @@ res://Scenes/collision_wall.tscn
 res://Scenes/Map.tscn
 res://Scenes/WaterPlane.tscn
 res://Scenes/hy_drone.tscn
+res://Scenes/hy_drone.gd
+res://Scenes/HUD.tscn

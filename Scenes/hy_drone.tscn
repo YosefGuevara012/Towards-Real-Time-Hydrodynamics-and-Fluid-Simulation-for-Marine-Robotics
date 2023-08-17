@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://c1dtcj0m6bpou"]
+[gd_scene load_steps=60 format=3 uid="uid://c1dtcj0m6bpou"]
 
 [ext_resource type="Script" path="res://Scenes/hy_drone.gd" id="1_vj1s2"]
 [ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="2_adnq8"]
+[ext_resource type="PackedScene" uid="uid://d2h3d07h8ar86" path="res://Scenes/HUD.tscn" id="3_bj4sg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gteis"]
 size = Vector3(0.731613, 0.182865, 1.16347)
@@ -933,7 +934,7 @@ shadow_mesh = SubResource("ArrayMesh_ojsnw")
 
 [node name="HyDrone" type="RigidBody3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0616818, 0)
-mass = 40.0
+mass = 25.0
 script = ExtResource("1_vj1s2")
 float_force = 50.0
 
@@ -1127,3 +1128,5 @@ spring_length = 1.5
 script = ExtResource("2_adnq8")
 
 [node name="ClippedCamera" type="Camera3D" parent="SpringArm3D"]
+
+[node name="HUD" parent="." instance=ExtResource("3_bj4sg")]

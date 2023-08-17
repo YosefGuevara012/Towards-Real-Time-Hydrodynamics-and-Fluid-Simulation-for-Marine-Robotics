@@ -35,10 +35,10 @@ const ROTATION_SPEED = 0.5
 #----------Vehicle Varibales
 
 @export var engine_force = 5.80
-
-
-
 var velocity = Vector3.ZERO
+
+var direction = Vector3.FORWARD
+
 
 # Water Effect varibles
 var submerged := false
@@ -74,7 +74,7 @@ func _physics_process(delta):
 	
 	############################
 	get_input(delta)
-	move_and_collide(velocity)	
+	move_and_collide(direction)	
 	##############################
 	
 	
@@ -96,16 +96,28 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 
 func get_input(delta):
 	
-	var velocity_y = velocity.y
-	velocity = Vector3.ZERO
-
-	if Input.is_action_pressed("ACCELERATE"):
-		velocity -= transform.basis.z * SPEED
-	if Input.is_action_pressed("REVERSE"):
-		velocity += transform.basis.z * SPEED
-	if Input.is_action_pressed("RIGHT"):
-		rotate_y(-ROTATION_SPEED * delta)
-	if Input.is_action_pressed("LEFT"):	
-		rotate_y(ROTATION_SPEED * delta)
+	#################
 	
-	velocity.y = velocity_y
+	direction = Vector3(Input.get_action_strength("RIGHT") - Input.get_action_strength("LEFT"),
+						 0, 
+						 Input.get_action_strength("REVERSE") - Input.get_action_strength("ACCELERATE"))
+						
+	$HUD/Label.text = "direction: " + str(direction)
+	$HUD/Label2.text = "direction.length(): " + str(direction.length())
+
+	#################S
+	
+	
+#	var velocity_y = velocity.y
+#	velocity = Vector3.ZERO
+
+#	if Input.is_action_pressed("ACCELERATE"):
+#		velocity -=transform.basis.z * SPEED
+#	if Input.is_action_pressed("REVERSE"):
+#		velocity += transform.basis.z * SPEED
+#	if Input.is_action_pressed("RIGHT"):
+#		rotate_y(-ROTATION_SPEED * delta)
+#	if Input.is_action_pressed("LEFT"):	
+#		rotate_y(ROTATION_SPEED * delta)
+	
+#	velocity.y = velocity_y

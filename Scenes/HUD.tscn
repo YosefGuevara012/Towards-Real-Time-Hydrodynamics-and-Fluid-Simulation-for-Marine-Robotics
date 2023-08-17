@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2h3d07h8ar86"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 103.0
+offset_right = 171.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 133.0
+offset_right = 162.0
+offset_bottom = 156.0
