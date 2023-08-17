@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2qf3ij1tyepq"]
+[gd_scene load_steps=10 format=3 uid="uid://d2qf3ij1tyepq"]
 
 [ext_resource type="PackedScene" uid="uid://dlnlg3km0j6vo" path="res://Scenes/WaterPlane.tscn" id="1_o0yb8"]
 [ext_resource type="Texture2D" uid="uid://csgkmtkowgdj8" path="res://Resources/sky/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="3_1qn3h"]
 [ext_resource type="PackedScene" uid="uid://c2c8v1k0jatfv" path="res://Scenes/nomad_drifter.tscn" id="3_8fqyq"]
 [ext_resource type="Script" path="res://Scenes/WaterPlane.gd" id="3_aw4af"]
 [ext_resource type="PackedScene" uid="uid://c1dtcj0m6bpou" path="res://Scenes/hy_drone.tscn" id="5_pqw8j"]
+[ext_resource type="PackedScene" uid="uid://cgm1w3pb50cje" path="res://Scenes/collision_wall.tscn" id="6_5lai3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
 panorama = ExtResource("3_1qn3h")
@@ -37,3 +38,15 @@ float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84144, 0.674187, 0.475865)
+
+[node name="collision_wall" parent="." instance=ExtResource("6_5lai3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+
+[node name="collision_wall2" parent="." instance=ExtResource("6_5lai3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50, 0, 0)
+
+[node name="collision_wall3" parent="." instance=ExtResource("6_5lai3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 50)
+
+[node name="collision_wall4" parent="." instance=ExtResource("6_5lai3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -50)

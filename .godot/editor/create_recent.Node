@@ -1,10 +1,11 @@
-RigidBody3D
+StaticBody3D
 CollisionShape3D
+MeshInstance3D
+RigidBody3D
 ColorRect
 SubViewport
 Camera3D
 SpringArm3D
-MeshInstance3D
 CollisionPolygon3D
 Marker3D
 CharacterBody3D

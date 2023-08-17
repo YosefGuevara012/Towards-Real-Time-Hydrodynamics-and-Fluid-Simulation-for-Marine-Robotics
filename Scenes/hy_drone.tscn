@@ -935,7 +935,7 @@ shadow_mesh = SubResource("ArrayMesh_ojsnw")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.0616818, 0)
 mass = 40.0
 script = ExtResource("1_vj1s2")
-float_force = 30.0
+float_force = 50.0
 
 [node name="collision_hull" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.00042e-09, 0.0303202, -0.059607)
@@ -1064,6 +1064,7 @@ mesh = SubResource("ArrayMesh_kh7b4")
 skeleton = NodePath("")
 
 [node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021, 0)
 
 [node name="Probe" type="Marker3D" parent="ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255553, -0.0612083, -0.493125)

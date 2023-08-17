@@ -25,13 +25,20 @@ extends RigidBody3D
 
 #------------USING A RIDIG BODY INSTEAD A VEHICLE NODE
 
-var acceleration = 0.05
 var max_speed = 3.09 #Aprox 6 kn
-var velocity = Vector3.ZERO
 
-const SPEED = 0.05
+
+var SPEED = 0.05
 const ROTATION_SPEED = 0.5
 
+
+#----------Vehicle Varibales
+
+@export var engine_force = 5.80
+
+
+
+var velocity = Vector3.ZERO
 
 # Water Effect varibles
 var submerged := false
@@ -72,7 +79,7 @@ func _physics_process(delta):
 	
 	
 
-	#Water affect
+	# Bouyancty effect
 	submerged = false
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y 
@@ -89,13 +96,11 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 
 func get_input(delta):
 	
-	var vy = velocity.y
+	var velocity_y = velocity.y
 	velocity = Vector3.ZERO
-	
+
 	if Input.is_action_pressed("ACCELERATE"):
-		print("POTENCIA")
 		velocity -= transform.basis.z * SPEED
-		print(Input.get_action_strength("ACCELERATE"))
 	if Input.is_action_pressed("REVERSE"):
 		velocity += transform.basis.z * SPEED
 	if Input.is_action_pressed("RIGHT"):
@@ -103,4 +108,4 @@ func get_input(delta):
 	if Input.is_action_pressed("LEFT"):	
 		rotate_y(ROTATION_SPEED * delta)
 	
-	velocity.y = vy
+	velocity.y = velocity_y
