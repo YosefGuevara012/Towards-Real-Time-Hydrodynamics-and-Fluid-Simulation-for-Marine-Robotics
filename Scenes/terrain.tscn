@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blxiv7a8p22hi"]
+
+[ext_resource type="Script" path="res://Terrain.gd" id="1_dj65g"]
+
+[node name="Terrain" type="StaticBody3D"]
+script = ExtResource("1_dj65g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

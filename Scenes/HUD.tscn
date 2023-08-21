@@ -12,7 +12,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 34.0
 offset_top = 103.0
 offset_right = 171.0
 offset_bottom = 126.0
@@ -20,7 +20,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 57.0
+offset_left = 37.0
 offset_top = 133.0
-offset_right = 162.0
+offset_right = 178.0
 offset_bottom = 156.0

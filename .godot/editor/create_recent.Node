@@ -1,7 +1,7 @@
-Label
 StaticBody3D
-CollisionShape3D
 MeshInstance3D
+Label
+CollisionShape3D
 RigidBody3D
 ColorRect
 SubViewport
