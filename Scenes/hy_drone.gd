@@ -12,7 +12,7 @@ extends RigidBody3D
 
 #------------USING A RIDIG BODY INSTEAD A VEHICLE NODE
 
-var max_speed = 3.09 #Aprox 6 kn
+var MAX_SPEED = 6 * 0.514444 # max speed in kn to m/s
 var SPEED = 0.05
 const ANGULAR_SPEED = 0.5
 
@@ -59,9 +59,9 @@ func get_input(delta):
 	velocity = Vector3.ZERO
 	
 	if Input.is_action_pressed("ACCELERATE"):
-		velocity -=transform.basis.z * SPEED
+		velocity -=transform.basis.z * MAX_SPEED * delta
 	elif Input.is_action_pressed("REVERSE"):
-		velocity += transform.basis.z * SPEED
+		velocity += transform.basis.z * MAX_SPEED * delta
 	
 	if Input.is_action_pressed("RIGHT"):
 		rotate_y(-ANGULAR_SPEED * delta)
