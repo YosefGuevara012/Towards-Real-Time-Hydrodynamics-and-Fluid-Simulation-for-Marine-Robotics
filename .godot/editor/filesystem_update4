@@ -1,9 +1,5 @@
-res://Scenes/hy_drone.tscn
+res://Scenes/under_water_terrain.tscn
 res://Shaders/Water.gdshader
 res://Shaders/Water.tres
-res://boat_waves.gdshader
-res://Scenes/hy_drone.gd
+res://under_water_terrain.gd
 res://Scenes/Map.tscn
-res://Scenes/WaterPlane.tscn
-res://Scenes/terrain.tscn
-res://Scenes/Camera3D.gd

@@ -54,7 +54,7 @@ func get_input(delta):
 
 	if Input.is_action_pressed("CAMERA_UP"):
 		is_any_key_pressed = true
-		if rad_to_deg(rotation.x) <= 0:
+		if rad_to_deg(rotation.x) <= 30:
 			rotation.x += CAMERA_ROTATION_SPEED * delta
 				
 	if Input.is_action_pressed("CAMERA_DOWN"):	

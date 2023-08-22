@@ -116,6 +116,10 @@ SWITCH_CAMERA={
 ]
 }
 
+[physics]
+
+3d/physics_engine="GodotPhysics3D"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,6 +1,6 @@
+MeshInstance3D
 Camera3D
 StaticBody3D
-MeshInstance3D
 Label
 CollisionShape3D
 RigidBody3D
