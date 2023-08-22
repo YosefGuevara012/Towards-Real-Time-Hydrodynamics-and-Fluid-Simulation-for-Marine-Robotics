@@ -1127,6 +1127,6 @@ collision_mask = 2
 spring_length = 1.5
 script = ExtResource("2_adnq8")
 
-[node name="ClippedCamera" type="Camera3D" parent="SpringArm3D"]
+[node name="Hydrone_camera" type="Camera3D" parent="SpringArm3D"]
 
 [node name="HUD" parent="." instance=ExtResource("3_bj4sg")]

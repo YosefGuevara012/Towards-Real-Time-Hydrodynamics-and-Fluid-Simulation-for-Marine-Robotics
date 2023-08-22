@@ -1,3 +1,4 @@
+Camera3D
 StaticBody3D
 MeshInstance3D
 Label
@@ -5,7 +6,6 @@ CollisionShape3D
 RigidBody3D
 ColorRect
 SubViewport
-Camera3D
 SpringArm3D
 CollisionPolygon3D
 Marker3D
