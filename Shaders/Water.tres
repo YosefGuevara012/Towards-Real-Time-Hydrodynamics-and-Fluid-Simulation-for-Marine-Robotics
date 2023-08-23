@@ -39,7 +39,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_isxr8")
 
 [resource]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_x6wbt")
 shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
 shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)
