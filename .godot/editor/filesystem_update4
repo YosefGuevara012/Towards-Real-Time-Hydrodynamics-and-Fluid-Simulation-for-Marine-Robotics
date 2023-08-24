@@ -1,7 +1,10 @@
-res://Scenes/Map.tscn
+res://Scenes/WaterPlane.tscn
 res://Shaders/Water.gdshader
 res://Shaders/Water.tres
-res://Scenes/WaterPlane.tscn
+res://Scenes/Map.tscn
 res://Scenes/hy_drone.tscn
 res://Scenes/nomad_drifter.tscn
 res://Scenes/under_water_terrain.tscn
+res://Shaders/Underwater.gdshader
+res://Shaders/underwater.tres
+res://Scenes/Camera3D.gd

@@ -5,7 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aunfh"]
 albedo_color = Color(0.760784, 0.698039, 0.501961, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ld6i7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_o1tb3"]
 _surfaces = [{
 "aabb": AABB(0, -2.62256, 0, 150, 5.33612, 150),
 "format": 4099,
@@ -18,7 +18,7 @@ _surfaces = [{
 
 [node name="Terrain" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_aunfh")
-mesh = SubResource("ArrayMesh_ld6i7")
+mesh = SubResource("ArrayMesh_o1tb3")
 script = ExtResource("1_o566j")
 x_size = 150
 z_size = 150

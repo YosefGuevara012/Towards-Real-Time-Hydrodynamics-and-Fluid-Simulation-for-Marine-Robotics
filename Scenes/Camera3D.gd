@@ -10,27 +10,39 @@ const ROTATION_TIMER_TRIGGER = 3
 
 # Camera switching
 # Definition of the default camera:
-var active_camera = camera_1
+var active_camera = 1
 
 
 # Reference to the cameras
 @onready var camera_1 = $Hydrone_camera
 @onready var camera_2 = get_node('/root/World/operator_camera')
+@onready var camera_3 = $"../Frontal_camera"
 
 func _ready():
 	# Ensure only camera1 is active at the start
 	camera_1.current = true
 	camera_2.current = false
-
+	camera_3.current = false
+	
 func switch_camera():
-	if active_camera == camera_1:
+	active_camera += 1
+	if active_camera ==  1:
+		print(active_camera)
+		camera_1.current = true
+		camera_2.current = false
+		camera_3.current = false 
+	elif active_camera == 2:
+		print(active_camera)
 		camera_1.current = false
 		camera_2.current = true
-		active_camera = camera_2
-	else:
+		camera_3.current = false
+	elif active_camera == 3:
+		print(active_camera)
+		camera_1.current = false
 		camera_2.current = false
-		camera_1.current = true
-		active_camera = camera_1
+		camera_3.current = true
+		active_camera = 0
+
 
 func get_input(delta):
 	
@@ -38,9 +50,9 @@ func get_input(delta):
 	# Block rotation on the Z axis
 	rotation.z = 0
 	
-	print("rotation in x: " ,rad_to_deg(rotation.x))
-	print("rotation in y: " ,rad_to_deg(rotation.y))
-	print("rotation in z: " ,rad_to_deg(rotation.z))
+#	print("rotation in x: " ,rad_to_deg(rotation.x))
+#	print("rotation in y: " ,rad_to_deg(rotation.y))
+#	print("rotation in z: " ,rad_to_deg(rotation.z))
 	
 	if Input.is_action_pressed("CAMERA_RIGHT"):
 		is_any_key_pressed = true
