@@ -27,17 +27,17 @@ func _ready():
 func switch_camera():
 	active_camera += 1
 	if active_camera ==  1:
-		print(active_camera)
+		#print(active_camera)
 		camera_1.current = true
 		camera_2.current = false
 		camera_3.current = false 
 	elif active_camera == 2:
-		print(active_camera)
+		#print(active_camera)
 		camera_1.current = false
 		camera_2.current = true
 		camera_3.current = false
 	elif active_camera == 3:
-		print(active_camera)
+		#print(active_camera)
 		camera_1.current = false
 		camera_2.current = false
 		camera_3.current = true

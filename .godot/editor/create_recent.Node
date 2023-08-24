@@ -1,10 +1,12 @@
+ColorRect
+HSlider
+Label
+FogVolume
 Camera3D
 MeshInstance3D
 StaticBody3D
-Label
 CollisionShape3D
 RigidBody3D
-ColorRect
 SubViewport
 SpringArm3D
 CollisionPolygon3D

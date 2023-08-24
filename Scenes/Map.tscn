@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2qf3ij1tyepq"]
+[gd_scene load_steps=14 format=3 uid="uid://d2qf3ij1tyepq"]
 
 [ext_resource type="PackedScene" uid="uid://dlnlg3km0j6vo" path="res://Scenes/WaterPlane.tscn" id="1_o0yb8"]
 [ext_resource type="Texture2D" uid="uid://csgkmtkowgdj8" path="res://Resources/sky/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="3_1qn3h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgm1w3pb50cje" path="res://Scenes/collision_wall.tscn" id="6_5lai3"]
 [ext_resource type="PackedScene" uid="uid://dt7ytm6p7teiv" path="res://Scenes/under_water_terrain.tscn" id="7_0ixlf"]
 [ext_resource type="PackedScene" uid="uid://d2h3d07h8ar86" path="res://Scenes/HUD.tscn" id="7_obef3"]
+[ext_resource type="Script" path="res://scripts/operator_camera.gd" id="9_7up64"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
 panorama = ExtResource("3_1qn3h")
@@ -22,7 +23,7 @@ ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3tptj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gptqc"]
 _surfaces = [{
 "aabb": AABB(0, -2.62256, 0, 150, 5.33612, 150),
 "format": 4099,
@@ -50,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 1.03525, -0.012114
 float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38994, 2.35386, -0.0467165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38994, 1.11661, -0.0467165)
 
 [node name="collision_wall" parent="." instance=ExtResource("6_5lai3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
@@ -66,9 +67,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Terrain" parent="." instance=ExtResource("7_0ixlf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -20, -75)
-mesh = SubResource("ArrayMesh_3tptj")
+mesh = SubResource("ArrayMesh_gptqc")
 
 [node name="HUD" parent="." instance=ExtResource("7_obef3")]
 
 [node name="operator_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887, 2.53132, 16.3782)
+script = ExtResource("9_7up64")
