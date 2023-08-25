@@ -23,7 +23,7 @@ ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gptqc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_suktu"]
 _surfaces = [{
 "aabb": AABB(0, -2.62256, 0, 150, 5.33612, 150),
 "format": 4099,
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 0.00910115, -0.001
 script = ExtResource("3_aw4af")
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192977, 1.03525, -0.0121148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.035, 0)
 float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
@@ -67,7 +67,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Terrain" parent="." instance=ExtResource("7_0ixlf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -20, -75)
-mesh = SubResource("ArrayMesh_gptqc")
+visible = false
+mesh = SubResource("ArrayMesh_suktu")
 
 [node name="HUD" parent="." instance=ExtResource("7_obef3")]
 

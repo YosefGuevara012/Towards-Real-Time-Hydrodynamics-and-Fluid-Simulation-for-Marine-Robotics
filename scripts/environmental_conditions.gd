@@ -1,6 +1,7 @@
 extends Control
 
 @onready var environmental_variables = $Environmental_variables
+@onready var vehicle_variables = $Vehicle_variables
 
 var active_hud = 1
 
@@ -14,13 +15,18 @@ func _process(delta):
 	pass
 
 func switch_camera():
-	
 	active_hud += 1
 	if active_hud == 1:
 		environmental_variables.visible = false
+		vehicle_variables.visible = true
 	elif active_hud == 2:
 		environmental_variables.visible = true
+		vehicle_variables.visible = true
+	elif active_hud == 3:
+		environmental_variables.visible = false
+		vehicle_variables.visible = false
 		active_hud = 0
+		
 	
 		
 

@@ -1,4 +1,6 @@
 ColorRect
+Panel
+CPUParticles3D
 HSlider
 Label
 FogVolume

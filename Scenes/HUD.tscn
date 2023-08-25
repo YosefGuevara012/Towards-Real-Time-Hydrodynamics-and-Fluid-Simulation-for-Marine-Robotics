@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2h3d07h8ar86"]
+[gd_scene load_steps=3 format=3 uid="uid://d2h3d07h8ar86"]
 
 [ext_resource type="Script" path="res://scripts/environmental_conditions.gd" id="1_deqko"]
+[ext_resource type="Script" path="res://scripts/Vehicle_variables.gd" id="2_b6jbw"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -20,6 +21,7 @@ offset_bottom = 294.0
 color = Color(0.670588, 0.670588, 0.670588, 0.12549)
 
 [node name="Label_environment_variables" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 12.0
 offset_right = 250.0
@@ -44,6 +46,7 @@ offset_right = 250.0
 offset_bottom = 83.0
 
 [node name="Label_wind_direction" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 86.0
 offset_right = 152.0
@@ -52,12 +55,14 @@ text = "WIND DIRECTION
 "
 
 [node name="slider_wind_direction" type="HSlider" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 112.0
 offset_right = 250.0
 offset_bottom = 128.0
 
 [node name="Label_wave_frecuency" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 130.0
 offset_right = 159.0
@@ -66,12 +71,14 @@ text = "WAVE FREQUENCY
 "
 
 [node name="slider_wave_frecuency" type="HSlider" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 157.0
 offset_right = 250.0
 offset_bottom = 173.0
 
 [node name="Label_ocean_color" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 176.0
 offset_right = 158.0
@@ -80,12 +87,14 @@ text = "WAVE AMPLITUDE
 "
 
 [node name="slider_ocean_color" type="HSlider" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 203.0
 offset_right = 251.0
 offset_bottom = 219.0
 
 [node name="Label_ocean_color2" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 218.0
 offset_right = 132.0
@@ -94,7 +103,156 @@ text = "OCEAN COLOR
 "
 
 [node name="slider_ocean_color2" type="HSlider" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 245.0
 offset_right = 251.0
 offset_bottom = 261.0
+
+[node name="Vehicle_variables" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 447.0
+offset_right = 1140.0
+offset_bottom = 634.0
+color = Color(0.670588, 0.670588, 0.670588, 0.12549)
+script = ExtResource("2_b6jbw")
+
+[node name="Vehicle_variables" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 5.0
+offset_right = 396.0
+offset_bottom = 31.0
+text = "       --------------- VEHICLE DASHBOARD ----------------"
+
+[node name="Latitude" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 37.0
+offset_right = 188.0
+offset_bottom = 63.0
+text = "LAT
+"
+
+[node name="Longitude" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 57.0
+offset_right = 188.0
+offset_bottom = 83.0
+text = "LON
+"
+
+[node name="Time" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 77.0
+offset_right = 188.0
+offset_bottom = 103.0
+text = "TIME
+"
+
+[node name="Yaw" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 37.0
+offset_right = 434.0
+offset_bottom = 63.0
+text = "YAW
+"
+
+[node name="Pitch" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 57.0
+offset_right = 434.0
+offset_bottom = 83.0
+text = "PITCH"
+
+[node name="Roll" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 77.0
+offset_right = 434.0
+offset_bottom = 103.0
+text = "ROLL
+"
+
+[node name="Depth_panel" type="ColorRect" parent="Vehicle_variables"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 110.0
+offset_right = 83.0
+offset_bottom = 178.0
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Depth" type="Label" parent="Vehicle_variables/Depth_panel"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 62.0
+offset_bottom = 29.0
+text = "DEPTH"
+
+[node name="Depth_value" type="Label" parent="Vehicle_variables/Depth_panel"]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 50.0
+text = "------ m"
+
+[node name="Depth_unit" type="Label" parent="Vehicle_variables/Depth_panel"]
+offset_left = 21.0
+offset_top = 44.0
+offset_right = 52.0
+offset_bottom = 70.0
+text = "[m]"
+
+[node name="Speed_panel" type="ColorRect" parent="Vehicle_variables"]
+offset_left = 148.0
+offset_top = 110.0
+offset_right = 216.0
+offset_bottom = 178.0
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Speed" type="Label" parent="Vehicle_variables/Speed_panel"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 62.0
+offset_bottom = 29.0
+text = "SPEED"
+
+[node name="Speed_value" type="Label" parent="Vehicle_variables/Speed_panel"]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 50.0
+text = "------ m"
+
+[node name="Speed_unit" type="Label" parent="Vehicle_variables/Speed_panel"]
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 53.0
+offset_bottom = 70.0
+text = "[Kn]"
+
+[node name="Heading_panel" type="ColorRect" parent="Vehicle_variables"]
+offset_left = 272.0
+offset_top = 110.0
+offset_right = 340.0
+offset_bottom = 178.0
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Heading" type="Label" parent="Vehicle_variables/Heading_panel"]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 62.0
+offset_bottom = 29.0
+text = "ANGLE"
+
+[node name="Heading_value" type="Label" parent="Vehicle_variables/Heading_panel"]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 50.0
+text = "------ m"
