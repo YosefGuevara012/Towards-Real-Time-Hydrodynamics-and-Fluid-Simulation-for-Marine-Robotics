@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/environmental_conditions.gd" id="1_deqko"]
 [ext_resource type="Script" path="res://scripts/Vehicle_variables.gd" id="2_b6jbw"]
 
-[node name="UI" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,17 +17,19 @@ layout_mode = 0
 offset_left = 40.0
 offset_top = 15.0
 offset_right = 309.0
-offset_bottom = 299.0
+offset_bottom = 320.0
 color = Color(0.670588, 0.670588, 0.670588, 0.12549)
 
 [node name="TIME" type="Label" parent="Environmental_variables"]
 layout_mode = 0
-offset_left = 78.0
+offset_left = 1.0
 offset_top = 16.0
-offset_right = 204.0
+offset_right = 268.0
 offset_bottom = 42.0
 text = "TIME: 13h:00m
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label_wind_speed" type="Label" parent="Environmental_variables"]
 layout_mode = 0
@@ -109,6 +111,20 @@ offset_top = 250.0
 offset_right = 255.0
 offset_bottom = 266.0
 
+[node name="Label_DMS" type="Label" parent="Environmental_variables"]
+offset_left = 23.0
+offset_top = 272.0
+offset_right = 66.0
+offset_bottom = 298.0
+text = "DMS"
+
+[node name="DMX_checkbox" type="CheckBox" parent="Environmental_variables"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 272.0
+offset_right = 92.0
+offset_bottom = 296.0
+
 [node name="Vehicle_variables" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 787.0
@@ -175,85 +191,75 @@ text = "ROLL:
 layout_mode = 0
 offset_left = 14.0
 offset_top = 79.0
-offset_right = 82.0
-offset_bottom = 147.0
+offset_right = 107.0
+offset_bottom = 127.0
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [node name="Depth" type="Label" parent="Vehicle_variables/Depth_panel"]
 layout_mode = 0
-offset_left = 8.0
 offset_top = 3.0
-offset_right = 62.0
+offset_right = 93.0
 offset_bottom = 29.0
-text = "DEPTH"
+text = "DEPTH [m]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Depth_value" type="Label" parent="Vehicle_variables/Depth_panel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 62.0
-offset_bottom = 50.0
-text = "------ m"
-
-[node name="Depth_unit" type="Label" parent="Vehicle_variables/Depth_panel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 44.0
-offset_right = 52.0
-offset_bottom = 70.0
-text = "[m]"
+offset_top = 23.0
+offset_right = 93.0
+offset_bottom = 49.0
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Speed_panel" type="ColorRect" parent="Vehicle_variables"]
 layout_mode = 0
-offset_left = 147.0
+offset_left = 129.0
 offset_top = 79.0
-offset_right = 215.0
-offset_bottom = 147.0
+offset_right = 225.0
+offset_bottom = 126.0
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [node name="Speed" type="Label" parent="Vehicle_variables/Speed_panel"]
 layout_mode = 0
-offset_left = 8.0
 offset_top = 3.0
-offset_right = 62.0
+offset_right = 96.0
 offset_bottom = 29.0
-text = "SPEED"
+text = "STW [kn]"
+horizontal_alignment = 1
 
 [node name="Speed_value" type="Label" parent="Vehicle_variables/Speed_panel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 62.0
-offset_bottom = 50.0
-text = "------ m"
-
-[node name="Speed_unit" type="Label" parent="Vehicle_variables/Speed_panel"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 44.0
-offset_right = 53.0
-offset_bottom = 70.0
-text = "[Kn]"
+offset_top = 22.0
+offset_right = 97.0
+offset_bottom = 48.0
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Heading_panel" type="ColorRect" parent="Vehicle_variables"]
 layout_mode = 0
-offset_left = 271.0
+offset_left = 250.0
 offset_top = 79.0
 offset_right = 339.0
-offset_bottom = 147.0
+offset_bottom = 126.0
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [node name="Heading" type="Label" parent="Vehicle_variables/Heading_panel"]
 layout_mode = 0
-offset_left = 8.0
 offset_top = 3.0
-offset_right = 62.0
+offset_right = 89.0
 offset_bottom = 29.0
-text = "ANGLE"
+text = "HEADING"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Heading_value" type="Label" parent="Vehicle_variables/Heading_panel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 62.0
-offset_bottom = 50.0
+offset_top = 21.0
+offset_right = 89.0
+offset_bottom = 47.0
+text = "180°"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,6 +3,7 @@ extends Control
 @onready var environmental_variables = $Environmental_variables
 @onready var vehicle_variables = $Vehicle_variables
 
+
 var active_hud = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -39,3 +40,4 @@ func get_input(delta):
 	
 func _physics_process(delta):
 	get_input(delta)
+

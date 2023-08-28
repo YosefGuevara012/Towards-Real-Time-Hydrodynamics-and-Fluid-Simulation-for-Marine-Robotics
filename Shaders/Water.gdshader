@@ -20,9 +20,9 @@ uniform float wave_time = 0;
 uniform vec2 wave_direction = vec2(2.0,0.0);
 uniform vec2 wave_2_direction = vec2(0.0,1.0);
 uniform float time_scale : hint_range(0.0, 0.2, 0.005) = 0.025;
-uniform float wave_speed = 0.2;
-uniform float noise_scale = 10.0;
-uniform float height_scale = 0.15;
+uniform float wave_speed : hint_range(0.0, 50) = 0.02;
+uniform float noise_scale : hint_range(0.0, 100) = 10.0;
+uniform float height_scale : hint_range(0.0, 1) = 0.15;
 uniform float beers_law = 2.0;
 uniform float depth_offset = -0.75;
 

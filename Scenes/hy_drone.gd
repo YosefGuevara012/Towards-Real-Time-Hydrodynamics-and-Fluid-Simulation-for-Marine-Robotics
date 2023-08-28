@@ -6,17 +6,18 @@ extends RigidBody3D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = get_node('/root/World/WaterPlane')
+@onready var HUD = get_node('/root/World/HUD')
 
 @onready var probes = $ProbeContainer.get_children()
 
 
-#------------USING A RIDIG BODY INSTEAD A VEHICLE NODE
+# USING A RIDIG BODY INSTEAD A VEHICLE NODE
 
 var MAX_SPEED = 6 * 0.514444 # max speed in kn to m/s
 var SPEED = 0.05
 const ANGULAR_SPEED = 0.5
 
-#----------Vehicle Varibales
+# Vehicle Variables
 
 @export var engine_force = 5.80
 var velocity = Vector3.ZERO
@@ -24,20 +25,15 @@ var velocity = Vector3.ZERO
 # Water Effect varibles
 var submerged := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+# Define a signal for updating the velocity
+signal velocity_updated(new_velocity: Vector3)
 
 func _physics_process(delta):
 	
 	# Vehicle control function
 	get_input(delta)
 	move_and_collide(velocity)	
-	
+
 	# Bouyancty effect
 	submerged = false
 	for p in probes:
@@ -68,6 +64,7 @@ func get_input(delta):
 	elif Input.is_action_pressed("LEFT"):	
 		rotate_y(ANGULAR_SPEED * delta)
 
+	velocity.y = velocity_y
 	
 
-	velocity.y = velocity_y
+

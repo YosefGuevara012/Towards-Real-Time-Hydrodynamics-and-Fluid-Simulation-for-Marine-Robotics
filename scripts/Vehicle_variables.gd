@@ -7,6 +7,7 @@ extends ColorRect
 # Defining local variables
 var time_passed = 0
 
+
 func _physics_process(delta):
 	
 	set_values(delta)
@@ -14,7 +15,6 @@ func _physics_process(delta):
 
 func set_values(delta):
 	
-	print(current_time)
 	
 	# Time passed calculation
 	time_passed += delta
@@ -25,8 +25,16 @@ func set_values(delta):
 	
 	# Vehicle coordinates
 	# snapped funtion is a function for round the values
-	$Latitude.text = "LAT:    " + str(snapped(vehicle_position.x,0.0001)) 
-	$Longitude.text = "LON:    " + str(snapped(vehicle_position.y,0.0001))
+	
+	if $"../Environmental_variables/DMX_checkbox".button_pressed == true:
+		$Latitude.text = "LAT:    " + str(decimal_to_geographic(vehicle_position.x))
+		$Longitude.text = "LON:    " + str(decimal_to_geographic(vehicle_position.z))
+	else:
+		$Latitude.text = "LAT:    " + str(snapped(vehicle_position.x,0.000001)) 
+		$Longitude.text = "LON:    " + str(snapped(vehicle_position.z,0.000001))
+		
+	
+	
 	
 	# Time calculation process
 	$Time.text = "HOB:    " + str(convert_seconds_to_time(time_passed))
@@ -38,10 +46,15 @@ func set_values(delta):
 	$Pitch.text = "PITCH:   " + str(snapped(rad_to_deg(vehicle_rotation.x),0.01))
 	$Roll.text = "ROLL:   " + str(snapped(rad_to_deg(vehicle_rotation.z),0.01))
 	
+	# Depth data
+	
+	# Speed Data
+
+	
 	# Vehicle Odometer data
 	var heading = snapped(rad_to_deg(vehicle_rotation.y),0)
 	
-	if heading < 0:
+	if heading <= 0:
 		$Heading_panel/Heading_value.text = str(-heading) + "°"
 	else: 
 		$Heading_panel/Heading_value.text = str(360 - heading) + "°"
@@ -61,6 +74,17 @@ func add_seconds_to_time(time_str, seconds_to_add):
 
 	return total_seconds
 
+
+# Function to convert decimal degrees to degrees, minutes, and seconds
+func decimal_to_geographic(coordinate) :
+	var degrees = int(coordinate)
+	
+	var decimal_minutes = abs(coordinate - degrees) * 60
+	var minutes = int(decimal_minutes)
+	var seconds = (decimal_minutes - minutes) * 60
+	
+	return  str(degrees)+"°"+str(minutes)+"'"+str(snapped(seconds,0))+"''"
+	
 
 func convert_seconds_to_time(seconds):
 	
