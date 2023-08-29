@@ -111,19 +111,20 @@ offset_top = 250.0
 offset_right = 255.0
 offset_bottom = 266.0
 
-[node name="Label_DMS" type="Label" parent="Environmental_variables"]
+[node name="XYZ coordinates" type="Label" parent="Environmental_variables"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 272.0
 offset_right = 66.0
 offset_bottom = 298.0
-text = "DMS"
+text = "XYZ coordinates"
 
-[node name="DMX_checkbox" type="CheckBox" parent="Environmental_variables"]
+[node name="XYZ_coord_checkbox" type="CheckBox" parent="Environmental_variables"]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 272.0
-offset_right = 92.0
-offset_bottom = 296.0
+offset_left = 153.0
+offset_top = 273.0
+offset_right = 177.0
+offset_bottom = 297.0
 
 [node name="Vehicle_variables" type="ColorRect" parent="."]
 layout_mode = 0

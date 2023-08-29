@@ -25,17 +25,14 @@ func set_values(delta):
 	
 	# Vehicle coordinates
 	# snapped funtion is a function for round the values
-	
-	if $"../Environmental_variables/DMX_checkbox".button_pressed == true:
-		$Latitude.text = "LAT:    " + str(decimal_to_geographic(vehicle_position.x))
-		$Longitude.text = "LON:    " + str(decimal_to_geographic(vehicle_position.z))
-	else:
+	# DMS Coordiante system added
+	if $"../Environmental_variables/XYZ_coord_checkbox".button_pressed == true:
 		$Latitude.text = "LAT:    " + str(snapped(vehicle_position.x,0.000001)) 
 		$Longitude.text = "LON:    " + str(snapped(vehicle_position.z,0.000001))
-		
-	
-	
-	
+	else:
+		$Latitude.text = "LAT:    " + str(decimal_to_geographic(vehicle_position.x))
+		$Longitude.text = "LON:    " + str(decimal_to_geographic(vehicle_position.z))
+
 	# Time calculation process
 	$Time.text = "HOB:    " + str(convert_seconds_to_time(time_passed))
 	$"../Environmental_variables/TIME".text = "TIME:    " + str(convert_seconds_to_time(add_seconds_to_time(current_time, time_passed)))
