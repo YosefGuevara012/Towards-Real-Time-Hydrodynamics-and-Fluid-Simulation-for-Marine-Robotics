@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://c1dtcj0m6bpou"]
+[gd_scene load_steps=60 format=3 uid="uid://c1dtcj0m6bpou"]
 
 [ext_resource type="Script" path="res://Scenes/hy_drone.gd" id="1_vj1s2"]
 [ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="2_adnq8"]
+[ext_resource type="Script" path="res://scripts/Ecosounder.gd" id="3_ik6u5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gteis"]
 size = Vector3(0.731613, 0.182865, 1.16347)
@@ -1132,3 +1133,7 @@ transform = Transform3D(1, 9.47311e-16, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Frontal_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135826, -0.247683)
+
+[node name="Ecosounder" type="RayCast3D" parent="."]
+target_position = Vector3(0, -50, 0)
+script = ExtResource("3_ik6u5")

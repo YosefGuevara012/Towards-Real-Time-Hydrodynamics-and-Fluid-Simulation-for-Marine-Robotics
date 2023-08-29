@@ -1,3 +1,5 @@
+RayCast3D
+StaticBody3D
 CheckBox
 Label
 TextEdit
@@ -8,7 +10,6 @@ HSlider
 FogVolume
 Camera3D
 MeshInstance3D
-StaticBody3D
 CollisionShape3D
 RigidBody3D
 SubViewport

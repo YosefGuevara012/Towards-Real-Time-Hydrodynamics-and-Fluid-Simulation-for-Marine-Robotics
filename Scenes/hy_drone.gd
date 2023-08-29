@@ -39,10 +39,6 @@ func _physics_process(delta):
 	
 	# Ocean effect
 	bouyancy()
-	
-
-	
-
 
 func bouyancy():
 	# Bouyancty effect
