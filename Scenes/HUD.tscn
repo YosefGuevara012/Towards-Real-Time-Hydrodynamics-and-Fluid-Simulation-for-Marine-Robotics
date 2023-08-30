@@ -127,11 +127,16 @@ offset_right = 177.0
 offset_bottom = 297.0
 
 [node name="Vehicle_variables" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 787.0
-offset_top = 482.0
-offset_right = 1140.0
-offset_bottom = 634.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -365.0
+offset_top = -166.0
+offset_right = -12.0
+offset_bottom = -14.0
 color = Color(0.670588, 0.670588, 0.670588, 0)
 script = ExtResource("2_b6jbw")
 
