@@ -1,3 +1,4 @@
+CPUParticles3D
 RayCast3D
 StaticBody3D
 CheckBox
@@ -5,7 +6,6 @@ Label
 TextEdit
 ColorRect
 Panel
-CPUParticles3D
 HSlider
 FogVolume
 Camera3D

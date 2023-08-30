@@ -14,28 +14,26 @@ extends RigidBody3D
 
 # max speed in kn to m/s
 const MAX_SPEED = 6 * 0.514444 
-# Engine force, 388 W For the T200 for 16V
 var thorttle = 0
-
-var SPEED = 0.05
 const ANGULAR_SPEED = 0.5
 var time = 0
-# Vehicle Variables
-
-@export var engine_force = 5.80
 var velocity = Vector3.ZERO
 
 # Water Effect varibles
 var submerged := false
 
 # Define a signal for updating the velocity
-signal velocity_updated(new_velocity: Vector3)
+signal vehicle_velocity(new_velocity: Vector3)
+
 
 func _physics_process(delta):
 	
 	# Vehicle control function
 	get_input(delta)
 	move_and_collide(velocity)	
+	
+	#Send sensor data
+	send_sensor_data()
 	
 	# Ocean effect
 	bouyancy()
@@ -79,4 +77,5 @@ func get_input(delta):
 	velocity.y = velocity_y
 	
 
-
+func send_sensor_data():
+	emit_signal("vehicle_velocity", velocity.length())

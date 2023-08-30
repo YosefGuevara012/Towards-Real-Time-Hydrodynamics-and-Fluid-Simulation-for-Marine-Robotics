@@ -62,7 +62,7 @@ func generate_terrain():
 #	sphere.height = 0.2
 #	mesh_instance.mesh = sphere
 
-func _process(delta):
+func _process(_delta):
 	if update:
 		generate_terrain()
 		update = false

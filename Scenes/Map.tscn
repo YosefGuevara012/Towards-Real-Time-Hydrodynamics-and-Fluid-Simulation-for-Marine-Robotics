@@ -33,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="WaterPlane" parent="." instance=ExtResource("1_o0yb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 0.00910115, 2.77733)
-visible = false
 script = ExtResource("3_aw4af")
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
@@ -63,3 +62,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -20, -75)
 [node name="operator_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887, 2.53132, 16.3782)
 script = ExtResource("9_7up64")
+
+[editable path="HUD"]

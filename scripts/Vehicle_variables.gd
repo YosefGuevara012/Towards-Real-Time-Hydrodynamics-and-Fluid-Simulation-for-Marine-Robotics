@@ -2,11 +2,15 @@ extends ColorRect
 
 # Node Calling
 @onready var vehicle = get_node('/root/World/HyDrone')
+@onready var ecosounder = get_node('/root/World/HyDrone/Ecosounder')
 @onready var current_time = "13:00"
 
 # Defining local variables
 var time_passed = 0
 
+func _ready():
+	vehicle.vehicle_velocity.connect(self._on_hy_drone_vehicle_velocity)
+	ecosounder.measured_depth.connect(self._on_ecosounder_measured_depth)
 
 func _physics_process(delta):
 	
@@ -103,3 +107,11 @@ func convert_seconds_to_time(seconds):
 	else:
 		return str(hours)+"h:"+str(minutes)+"m:"+str(remaining_seconds)+"s"
 		
+
+
+func _on_hy_drone_vehicle_velocity(new_velocity):
+	$Speed_panel/Speed_value.text = str(snapped(new_velocity * 60 * 1.94384 , 0.01))
+
+
+func _on_ecosounder_measured_depth(new_depth):
+	$Depth_panel/Depth_value.text = str(new_depth)

@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func switch_camera():
@@ -31,7 +31,7 @@ func switch_camera():
 	
 		
 
-func get_input(delta):
+func get_input(_delta):
 	
 	if Input.is_action_just_pressed("ENVIRONMENT_VARIABLES"):
 		switch_camera()
@@ -40,4 +40,5 @@ func get_input(delta):
 	
 func _physics_process(delta):
 	get_input(delta)
+
 
