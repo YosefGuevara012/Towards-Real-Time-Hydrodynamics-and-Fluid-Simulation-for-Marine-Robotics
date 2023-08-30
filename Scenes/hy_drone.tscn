@@ -428,7 +428,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_trxw8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_418yk"]
-size = Vector3(1, 0.0654338, 0.169033)
+size = Vector3(0.263834, 0.0654338, 0.169033)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gueh2"]
 resource_name = "screen_color"
@@ -1031,7 +1031,7 @@ mesh = SubResource("ArrayMesh_u7tfu")
 skeleton = NodePath("")
 
 [node name="left_propeler" type="MeshInstance3D" parent="collision_left_nozzle/left_nozzle/left_rotor"]
-transform = Transform3D(1, 0, 0, 0, -1.04904e-05, 1, 0, -1, -1.04904e-05, 0, 0.00490673, 0)
+transform = Transform3D(1, 4.91279e-20, 0, 0, -1.04904e-05, 1, 0, -1, -1.04904e-05, 0, 0.00490674, 0)
 mesh = SubResource("ArrayMesh_nvgmf")
 skeleton = NodePath("")
 

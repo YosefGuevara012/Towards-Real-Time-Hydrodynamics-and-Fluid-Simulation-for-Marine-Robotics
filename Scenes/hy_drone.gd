@@ -19,6 +19,9 @@ const ANGULAR_SPEED = 0.5
 var time = 0
 var velocity = Vector3.ZERO
 
+# Thrusters variables
+var FWD_max_rpm = 3527 * 6 # from rpm to Degrees per second 360/60 for 16 V
+var BWD_max_rpm = 3465 * 6 # from rpm to Degrees per second 360/60 for 16 V
 # Water Effect varibles
 var submerged := false
 
@@ -63,16 +66,38 @@ func get_input(delta):
 	
 	if Input.is_action_pressed("ACCELERATE"):
 		velocity = transform.basis.z * MAX_SPEED * thorttle * delta
+		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * thorttle * delta)
+		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * thorttle * delta)
 	elif Input.is_action_pressed("REVERSE"):
 		velocity = transform.basis.z * MAX_SPEED * thorttle *delta
+		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-BWD_max_rpm * thorttle * delta)
+		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-BWD_max_rpm * thorttle * delta)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.01)
 		velocity.z= lerp(velocity.z, 0.0, 0.01)
 	
 	if Input.is_action_pressed("RIGHT"):
 		rotate_y(-ANGULAR_SPEED * delta)
+		if Input.is_action_pressed("ACCELERATE"):
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-FWD_max_rpm  * delta)
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm * thorttle * delta)
+		elif Input.is_action_pressed("REVERSE"):	
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm  * delta)
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * ANGULAR_SPEED * delta)
+		else:
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm  * delta)
+			
 	elif Input.is_action_pressed("LEFT"):	
 		rotate_y(ANGULAR_SPEED * delta)
+		if Input.is_action_pressed("LEFT") and  Input.is_action_pressed("ACCELERATE"):
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm  * delta)
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * ANGULAR_SPEED * delta)
+		elif Input.is_action_pressed("LEFT") and  Input.is_action_pressed("REVERSE"):	
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm  * delta)
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-FWD_max_rpm * ANGULAR_SPEED * delta)
+		else:
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * delta)
+		
 
 	velocity.y = velocity_y
 	

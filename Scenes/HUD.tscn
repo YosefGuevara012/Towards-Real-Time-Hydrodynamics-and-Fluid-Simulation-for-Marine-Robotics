@@ -137,8 +137,18 @@ offset_left = -365.0
 offset_top = -166.0
 offset_right = -12.0
 offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
 color = Color(0.670588, 0.670588, 0.670588, 0)
 script = ExtResource("2_b6jbw")
+
+[node name="Debugger" type="Label" parent="Vehicle_variables"]
+offset_left = -282.0
+offset_top = -257.0
+offset_right = -111.0
+offset_bottom = -231.0
+text = "
+"
 
 [node name="Latitude" type="Label" parent="Vehicle_variables"]
 layout_mode = 0

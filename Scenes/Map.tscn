@@ -59,6 +59,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -20, -75)
 
 [node name="HUD" parent="." instance=ExtResource("7_obef3")]
 
+[node name="Debugger" parent="HUD/Vehicle_variables" index="0"]
+layout_mode = 0
+
 [node name="operator_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887, 2.53132, 16.3782)
 script = ExtResource("9_7up64")
