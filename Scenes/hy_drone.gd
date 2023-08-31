@@ -88,9 +88,10 @@ func get_input(delta):
 	
 	if Input.is_action_pressed("LEFT"):
 		rotate_y(ANGULAR_SPEED * delta)
-		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * delta)
+		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm * delta)
 		if throttle != 0.0:
-			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * 0.6 * delta * throttle_direction)	
+			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-FWD_max_rpm * delta)
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm * throttle * delta * throttle_direction)	
 			
 	velocity.y = velocity_y
 	
