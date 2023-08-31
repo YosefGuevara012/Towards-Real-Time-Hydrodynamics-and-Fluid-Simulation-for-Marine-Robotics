@@ -1,7 +1,7 @@
+StaticBody3D
 MeshInstance3D
 CPUParticles3D
 RayCast3D
-StaticBody3D
 CheckBox
 Label
 TextEdit

@@ -36,6 +36,7 @@ fractal_weighted_strength = 0.6
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7r82k"]
 seamless = true
+as_normal_map = true
 noise = SubResource("FastNoiseLite_isxr8")
 
 [resource]
@@ -54,7 +55,7 @@ shader_parameter/time_scale = 0.025
 shader_parameter/wave_speed = 0.02
 shader_parameter/noise_scale = 10.0
 shader_parameter/height_scale = 0.15
-shader_parameter/beers_law = 2.0
+shader_parameter/beers_law = 0.16
 shader_parameter/depth_offset = -0.75
 shader_parameter/edge_scale = 0.16
 shader_parameter/near = 1.0

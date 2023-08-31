@@ -143,6 +143,7 @@ color = Color(0.670588, 0.670588, 0.670588, 0)
 script = ExtResource("2_b6jbw")
 
 [node name="Debugger" type="Label" parent="Vehicle_variables"]
+layout_mode = 0
 offset_left = -282.0
 offset_top = -257.0
 offset_right = -111.0

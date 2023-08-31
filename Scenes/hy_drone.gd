@@ -13,8 +13,8 @@ extends RigidBody3D
 # USING A RIDIG BODY INSTEAD A VEHICLE NODE
 
 # max speed in kn to m/s
-const MAX_SPEED = 6 * 0.514444 
-var thorttle = 0
+@export_range(1, 6) var survey_speed : float =  3
+var throttle = 0
 const ANGULAR_SPEED = 0.5
 var time = 0
 var velocity = Vector3.ZERO
@@ -60,18 +60,21 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 func get_input(delta):
 
 	var velocity_y = velocity.y
+	
 	# velocity = Vector3.ZERO
+	# Set the max. speed going FWD or BWD dependeing on the survey speed
+	var max_speed = survey_speed * 0.514444
+	# Boats moving BWD tend to reach the 70% of their maximun speed
+	var throttle_direction = 0.7 if throttle > 0.0 else 1.0
+
+
+	throttle = -Input.get_action_strength("ACCELERATE") + Input.get_action_strength("REVERSE")
+
 	
-	thorttle = -Input.get_action_strength("ACCELERATE") + Input.get_action_strength("REVERSE")
-	
-	if Input.is_action_pressed("ACCELERATE"):
-		velocity = transform.basis.z * MAX_SPEED * thorttle * delta
-		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * thorttle * delta)
-		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * thorttle * delta)
-	elif Input.is_action_pressed("REVERSE"):
-		velocity = transform.basis.z * MAX_SPEED * thorttle *delta
-		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-BWD_max_rpm * thorttle * delta)
-		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-BWD_max_rpm * thorttle * delta)
+	if Input.is_action_pressed("ACCELERATE") or Input.is_action_pressed("REVERSE"):
+		velocity = transform.basis.z * max_speed * throttle * delta * throttle_direction 
+		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * throttle * delta * throttle_direction)
+		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * throttle * delta * throttle_direction)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.01)
 		velocity.z= lerp(velocity.z, 0.0, 0.01)
@@ -80,7 +83,7 @@ func get_input(delta):
 		rotate_y(-ANGULAR_SPEED * delta)
 		if Input.is_action_pressed("ACCELERATE"):
 			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(-FWD_max_rpm  * delta)
-			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm * thorttle * delta)
+			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(-FWD_max_rpm * throttle * delta)
 		elif Input.is_action_pressed("REVERSE"):	
 			$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm  * delta)
 			$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * ANGULAR_SPEED * delta)

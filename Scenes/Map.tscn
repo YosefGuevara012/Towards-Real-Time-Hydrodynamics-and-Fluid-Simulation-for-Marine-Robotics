@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://Scenes/WaterPlane.gd" id="3_aw4af"]
 [ext_resource type="PackedScene" uid="uid://c1dtcj0m6bpou" path="res://Scenes/hy_drone.tscn" id="5_pqw8j"]
 [ext_resource type="PackedScene" uid="uid://cgm1w3pb50cje" path="res://Scenes/collision_wall.tscn" id="6_5lai3"]
-[ext_resource type="PackedScene" uid="uid://dt7ytm6p7teiv" path="res://Scenes/under_water_terrain.tscn" id="7_0ixlf"]
 [ext_resource type="PackedScene" uid="uid://d2h3d07h8ar86" path="res://Scenes/HUD.tscn" id="7_obef3"]
 [ext_resource type="Script" path="res://scripts/operator_camera.gd" id="9_7up64"]
+[ext_resource type="PackedScene" uid="uid://cdctwq33mb3hn" path="res://Scenes/canyon.tscn" id="9_rpkht"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d3i48"]
 panorama = ExtResource("3_1qn3h")
@@ -36,34 +36,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086194, 0.00910115, 2.7773
 script = ExtResource("3_aw4af")
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81988, 1.035, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67311, 2.13446, 0)
 float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976, 0)
+survey_speed = 6.0
 
 [node name="collision_wall" parent="." instance=ExtResource("6_5lai3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 0)
 
 [node name="collision_wall2" parent="." instance=ExtResource("6_5lai3")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 70, 0, 0)
 
 [node name="collision_wall3" parent="." instance=ExtResource("6_5lai3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 50)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 70)
 
 [node name="collision_wall4" parent="." instance=ExtResource("6_5lai3")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -50)
-
-[node name="Terrain" parent="." instance=ExtResource("7_0ixlf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -20, -75)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -70)
 
 [node name="HUD" parent="." instance=ExtResource("7_obef3")]
 
 [node name="Debugger" parent="HUD/Vehicle_variables" index="0"]
-layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 171.0
+offset_bottom = 26.0
 
 [node name="operator_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2887, 2.53132, 16.3782)
 script = ExtResource("9_7up64")
+
+[node name="Canyon" parent="." instance=ExtResource("9_rpkht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.2, 0)
 
 [editable path="HUD"]
