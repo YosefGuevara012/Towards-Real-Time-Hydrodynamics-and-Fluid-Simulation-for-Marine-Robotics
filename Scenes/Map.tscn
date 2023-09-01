@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67311, 2.13446, 0)
 float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50415, 0.976, 2.79447)
 survey_speed = 6.0
 
 [node name="collision_wall" parent="." instance=ExtResource("6_5lai3")]
