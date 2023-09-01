@@ -37,7 +37,6 @@ script = ExtResource("3_aw4af")
 
 [node name="nomad_filter" parent="." instance=ExtResource("3_8fqyq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67311, 2.13446, 0)
-float_force = 15.0
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50415, 0.976, 2.79447)

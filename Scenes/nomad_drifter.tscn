@@ -103,7 +103,6 @@ shadow_mesh = SubResource("ArrayMesh_02x4o")
 [node name="nomad_filter" type="RigidBody3D"]
 mass = 2.9
 script = ExtResource("1_xflw6")
-float_force = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.368221, 0, 0.0525192, 0, 0.371948, 0, -0.0525192, 0, 0.368221, 0, 0.211236, 0)
