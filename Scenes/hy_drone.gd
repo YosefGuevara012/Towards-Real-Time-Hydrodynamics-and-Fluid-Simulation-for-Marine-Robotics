@@ -11,6 +11,7 @@ extends RigidBody3D
 @onready var probes = $ProbeContainer.get_children()
 
 # USING A RIDIG BODY INSTEAD A VEHICLE NODE
+@export var object_total_volume = 0.0271 * 2 # m^3, only takes in count both hulls
 
 # max speed in kn to m/s
 @export_range(1, 6) var survey_speed : float =  3

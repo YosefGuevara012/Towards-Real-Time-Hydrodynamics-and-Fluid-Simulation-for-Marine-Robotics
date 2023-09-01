@@ -6,6 +6,10 @@
 	"scene":0,
 	"scenes":[
 		{
+			"extras":{
+				"td":{},
+				"print_3d":{}
+			},
 			"name":"Scene",
 			"nodes":[
 				0
@@ -14,6 +18,9 @@
 	],
 	"nodes":[
 		{
+			"extras":{
+				"ant_landscape":{}
+			},
 			"mesh":0,
 			"name":"Nomad_driter",
 			"rotation":[
