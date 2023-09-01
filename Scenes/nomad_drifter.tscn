@@ -112,3 +112,18 @@ shape = SubResource("ConvexPolygonShape3D_74k2i")
 [node name="Nomad_driter" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("ArrayMesh_4sbhc")
 skeleton = NodePath("")
+
+[node name="ProbeContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+
+[node name="Probe" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.32879e-05, 0.0930948)
+
+[node name="Probe2" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.093)
+
+[node name="Probe3" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.093, 0, 0)
+
+[node name="Probe4" type="Marker3D" parent="ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.093, 0, 0)

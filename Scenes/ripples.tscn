@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctb1cobopcf6a"]
+
+[ext_resource type="Shader" path="res://Shaders/ripples.gdshader" id="1_vwran"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jakp4"]
+resource_local_to_scene = true
+shader = ExtResource("1_vwran")
+
+[node name="ripples" type="Node3D"]
+
+[node name="Simulation" type="SubViewport" parent="."]
+size = Vector2i(514, 514)
+
+[node name="ColorRect" type="ColorRect" parent="Simulation"]
+material = SubResource("ShaderMaterial_jakp4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

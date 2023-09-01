@@ -7,6 +7,9 @@ extends RigidBody3D
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = get_node('/root/World/WaterPlane')
 
+#---------------- Added to calculate the bouyancy using the probes
+@onready var probes = $ProbeContainer.get_children()
+#-----------------------------------------------------------------
 var submerged := false
 
 const water_height := 0.0
@@ -22,11 +25,20 @@ func _ready():
 
 func _physics_process(_delta):
 	submerged = false
-	var depth = water.get_height(global_position) - global_position.y
-
-	if depth > 0:
-		submerged = true
-		apply_central_force(Vector3.UP * float_force * gravity * depth)
+	
+	#----------------------Code without probes-----------------------------
+#	var depth = water.get_height(global_position) - global_position.y
+#
+#	if depth > 0:
+#		submerged = true
+#		apply_central_force(Vector3.UP * float_force * gravity * depth)
+	#--------------------------------------------------------------------
+	
+	for p in probes:
+		var depth = water.get_height(p.global_position) - p.global_position.y 
+		if depth > 0:
+			submerged = true
+			apply_force(Vector3.UP * float_force * gravity * depth, p.global_position - global_position)
 
 func _integrate_forces(state:PhysicsDirectBodyState3D):
 	

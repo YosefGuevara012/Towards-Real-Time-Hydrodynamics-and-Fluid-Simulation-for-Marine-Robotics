@@ -1055,7 +1055,7 @@ mesh = SubResource("ArrayMesh_20jvf")
 skeleton = NodePath("")
 
 [node name="right_propeler" type="MeshInstance3D" parent="collision_right_nozzle/right_nozzle/right_rotor"]
-transform = Transform3D(1, 0, 0, 0, -1.04904e-05, 1, 0, -1, -1.04904e-05, 0, 0.00483315, 0)
+transform = Transform3D(1, 4.91279e-20, 0, 0, -1.04904e-05, 1, 0, -1, -1.04904e-05, 0, 0.00483316, -3.72529e-09)
 mesh = SubResource("ArrayMesh_by8rq")
 skeleton = NodePath("")
 
