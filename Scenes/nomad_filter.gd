@@ -30,29 +30,22 @@ func _ready():
 #	pass
 
 func _physics_process(_delta):
-
-	submerged = false
-	var probe_container_weight = 1.0 / probes.size()
-	#----------------------Code without probes-----------------------------
-#	var depth = water.get_height(global_position) - global_position.y
-#
-#	if depth > 0:
-#		submerged = true
-#		apply_central_force(Vector3.UP * float_force * gravity * depth)
-	#--------------------------------------------------------------------
 	
-	# Optimization: Check if object's central point is above water (you can adjust this based on your needs)
+		# Optimization: Check if object's central point is above water (you can adjust this based on your needs)
 	var central_depth = water.get_height(global_position) - global_position.y
 	if central_depth <= 0:
 		return  # Skip checking the probes if the object is above water.
 	
+	# Bounyancy variables	
+	submerged = false
+	var probe_container_weight = 1.0 / probes.size()
+	var displaced_volume = object_total_volume * submerged_fraction * probe_container_weight
+	var buoyancy_force = surface_seawater_density * displaced_volume * gravity
+	
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y
-		var displaced_volume = object_total_volume * submerged_fraction * probe_container_weight
-		
 		if depth > 0:
 			submerged = true
-			var buoyancy_force = surface_seawater_density * displaced_volume * gravity
 			apply_central_force(Vector3.UP * buoyancy_force)
 
 func _integrate_forces(state:PhysicsDirectBodyState3D):
