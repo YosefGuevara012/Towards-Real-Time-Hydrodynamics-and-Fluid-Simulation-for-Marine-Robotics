@@ -3,6 +3,10 @@ extends RigidBody3D
 @export var water_drag := 0.05
 @export var water_angular_drag := 0.05
 
+# Wind variables:
+@export var wind_speed := 30
+@export var wind_direction := 0.05
+
 # Global Physics varibles
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = get_node('/root/World/WaterPlane')

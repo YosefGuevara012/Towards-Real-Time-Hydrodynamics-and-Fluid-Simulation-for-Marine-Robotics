@@ -97,13 +97,8 @@
 			"doubleSided":true,
 			"name":"sand",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.11953839659690857,
-					0.09305888414382935,
-					0.03433983772993088,
-					1
-				],
-				"metallicFactor":0
+				"metallicFactor":0,
+				"roughnessFactor":0.5
 			}
 		}
 	],

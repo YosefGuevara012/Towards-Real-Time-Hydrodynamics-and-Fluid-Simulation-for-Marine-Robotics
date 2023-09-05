@@ -39,7 +39,7 @@ script = ExtResource("3_aw4af")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67311, 2.13446, 0)
 
 [node name="HyDrone" parent="." instance=ExtResource("5_pqw8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50415, 0.976, 2.79447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50415, 0.0699078, 2.79447)
 survey_speed = 6.0
 
 [node name="collision_wall" parent="." instance=ExtResource("6_5lai3")]
@@ -63,7 +63,7 @@ offset_right = 171.0
 offset_bottom = 26.0
 
 [node name="operator_camera" type="Camera3D" parent="."]
-transform = Transform3D(0.254399, 0.459174, -0.851141, 0, 0.880096, 0.474795, 0.967099, -0.120788, 0.223896, -10.5597, 10.8497, 7.28989)
+transform = Transform3D(0.0317945, 0.551454, -0.833599, 0, 0.834021, 0.551733, 0.999494, -0.0175421, 0.0265173, -11.1996, 12.2167, 6.393)
 far = 100.0
 script = ExtResource("9_7up64")
 

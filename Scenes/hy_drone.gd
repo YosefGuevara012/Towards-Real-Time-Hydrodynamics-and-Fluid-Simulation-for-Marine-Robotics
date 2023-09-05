@@ -9,6 +9,8 @@ extends RigidBody3D
 @onready var water = get_node('/root/World/WaterPlane')
 @onready var HUD = get_node('/root/World/HUD')
 
+
+
 # Bouyancy variables
 @export_range(1020, 1029) var surface_seawater_density : int =  1020
 @export var object_total_volume  = 0.0271 * 2# The total volume of the object in m^3
@@ -16,7 +18,11 @@ extends RigidBody3D
 @onready var probes = $ProbeContainer.get_children()
 var submerged := false
 
-# Vehicle mechanics characteristics added
+# Wind variables:
+@export_range(0, 64) var wind_speed : int =  13 # Set to works as a moderate wind
+@export_range(0, 360) var wind_direction : int =  270 # Set to works as a moderate wind
+
+# Vehicle mechanics characteristics -------------------------------------------------------
 @export_range(1, 6) var survey_speed : float =  3
 
 const ANGULAR_SPEED = 0.5
@@ -45,6 +51,8 @@ func _physics_process(delta):
 	
 	# Ocean effect
 	bouyancy()
+	
+	
 
 func bouyancy():
 	# Optimization: Check if object's central point is above water (you can adjust this based on your needs)
@@ -62,8 +70,9 @@ func bouyancy():
 		var depth = water.get_height(p.global_position) - p.global_position.y
 		if depth > 0:
 			submerged = true
-			apply_force(Vector3.UP * buoyancy_force,  p.global_position - global_position)
+			apply_force(Vector3.UP * buoyancy_force, p.global_position - global_position)
 
+	
 func _integrate_forces(state: PhysicsDirectBodyState3D):
 	
 	if submerged:
