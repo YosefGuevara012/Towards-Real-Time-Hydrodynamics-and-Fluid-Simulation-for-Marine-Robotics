@@ -74,6 +74,9 @@ func bouyancy():
 		if depth > 0:
 			submerged = true
 			apply_force(Vector3.UP * buoyancy_force, p.global_position - global_position)
+#		else:
+#			print("sobre el agua" + str(depth))
+#			apply_central_force(Vector3.DOWN * 9.8 * mass / probes.size() , p.global_position - global_position)
 
 	
 func _integrate_forces(state: PhysicsDirectBodyState3D):

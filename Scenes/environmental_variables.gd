@@ -16,6 +16,28 @@ func _process(delta):
 
 func _physics_process(_delta):
 	change_ocean_color()
+	change_wind_speed()
+	change_wave_height()
+	change_wind_direction()
+
+func change_wind_speed():
+	
+	var wave_speed: int = $slider_wind_speed.value
+	water.material.set_shader_parameter("wave_speed", wave_speed)
+
+func change_wave_height():
+	
+	var wave_height: float = $slider_wave_amplitude.value / 100
+	water.material.set_shader_parameter("height_scale", wave_height)
+
+func change_wind_direction():
+	var wave_direction = water.material.get_shader_parameter("wave_direction")
+	var wave_2_direction = water.material.get_shader_parameter("wave_2_direction")
+	var wind_direction: int = $slider_wind_direction.value
+	
+	water.material.set_shader_parameter("wave_direction", wave_direction + Vector2(wind_direction,wind_direction))
+	water.material.set_shader_parameter("wave_2_direction", wave_2_direction + Vector2(wind_direction,wind_direction))
+	print(water.material.get_shader_parameter("wave_direction"))
 
 func change_ocean_color():
 	
