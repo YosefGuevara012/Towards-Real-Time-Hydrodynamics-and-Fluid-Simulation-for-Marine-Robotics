@@ -52,6 +52,9 @@ func _physics_process(delta):
 	# Ocean effect
 	bouyancy()
 	
+	#water.material.set_shader_parameter("wave_speed",22)
+	#print(water.material.get_shader_parameter("wave_speed"))
+
 	
 
 func bouyancy():
@@ -89,7 +92,7 @@ func get_input(delta):
 	var max_speed = survey_speed * 0.514444
 	# Boats moving BWD tend to reach the 70% of their maximun speed
 	var throttle_direction = 0.7 if throttle > 0.0 else 1.0
-
+	
 
 	throttle = -Input.get_action_strength("ACCELERATE") + Input.get_action_strength("REVERSE")
 
@@ -98,6 +101,8 @@ func get_input(delta):
 		velocity = transform.basis.z * max_speed * throttle * delta * throttle_direction 
 		$collision_right_nozzle/right_nozzle/right_rotor/right_propeler.rotate_y(FWD_max_rpm * throttle * delta * throttle_direction)
 		$collision_left_nozzle/left_nozzle/left_rotor/left_propeler.rotate_y(FWD_max_rpm * throttle * delta * throttle_direction)
+
+		
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.01)
 		velocity.z= lerp(velocity.z, 0.0, 0.01)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2h3d07h8ar86"]
+[gd_scene load_steps=4 format=3 uid="uid://d2h3d07h8ar86"]
 
-[ext_resource type="Script" path="res://scripts/environmental_conditions.gd" id="1_deqko"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_cad5v"]
 [ext_resource type="Script" path="res://scripts/Vehicle_variables.gd" id="2_b6jbw"]
+[ext_resource type="Script" path="res://Scenes/environmental_variables.gd" id="2_ecwvg"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_deqko")
+script = ExtResource("1_cad5v")
 
 [node name="Environmental_variables" type="ColorRect" parent="."]
 layout_mode = 0
@@ -19,6 +20,7 @@ offset_top = 15.0
 offset_right = 309.0
 offset_bottom = 320.0
 color = Color(0.670588, 0.670588, 0.670588, 0.12549)
+script = ExtResource("2_ecwvg")
 
 [node name="TIME" type="Label" parent="Environmental_variables"]
 layout_mode = 0
@@ -46,6 +48,7 @@ offset_left = 20.0
 offset_top = 72.0
 offset_right = 254.0
 offset_bottom = 88.0
+max_value = 50.0
 
 [node name="Label_wind_direction" type="Label" parent="Environmental_variables"]
 layout_mode = 0
@@ -62,6 +65,7 @@ offset_left = 20.0
 offset_top = 117.0
 offset_right = 254.0
 offset_bottom = 133.0
+max_value = 359.0
 
 [node name="Label_wave_frecuency" type="Label" parent="Environmental_variables"]
 layout_mode = 0
@@ -79,7 +83,7 @@ offset_top = 162.0
 offset_right = 254.0
 offset_bottom = 178.0
 
-[node name="Label_ocean_color" type="Label" parent="Environmental_variables"]
+[node name="Label_wave_amplitude" type="Label" parent="Environmental_variables"]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 181.0
@@ -88,14 +92,14 @@ offset_bottom = 207.0
 text = "WAVE AMPLITUDE
 "
 
-[node name="slider_ocean_color" type="HSlider" parent="Environmental_variables"]
+[node name="slider_wave_amplitude" type="HSlider" parent="Environmental_variables"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 208.0
 offset_right = 255.0
 offset_bottom = 224.0
 
-[node name="Label_ocean_color2" type="Label" parent="Environmental_variables"]
+[node name="Label_ocean_color" type="Label" parent="Environmental_variables"]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 223.0
@@ -104,12 +108,15 @@ offset_bottom = 249.0
 text = "OCEAN COLOR
 "
 
-[node name="slider_ocean_color2" type="HSlider" parent="Environmental_variables"]
+[node name="slider_ocean_color" type="HSlider" parent="Environmental_variables"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 250.0
 offset_right = 255.0
 offset_bottom = 266.0
+min_value = 1.0
+max_value = 5.0
+value = 1.0
 
 [node name="XYZ coordinates" type="Label" parent="Environmental_variables"]
 layout_mode = 0
