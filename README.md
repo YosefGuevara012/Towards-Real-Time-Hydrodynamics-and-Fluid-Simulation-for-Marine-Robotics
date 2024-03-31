@@ -1,7 +1,8 @@
 # Towards Real-Time Hydrodynamics and Fluid Simulation for Marine Robotics
+![image](https://github.com/YosefGuevara012/Towards-Real-Time-Hydrodynamics-and-Fluid-Simulation-for-Marine-Robotics/assets/54146941/6fdcffa1-374b-41df-962a-7a2b99fa93b5)
 
 ## Introduction
-This thesis presents the advancements and methodologies involved in simulating and visualizing the fluid dynamics around underwater vehicles. By combining theoretical frameworks with empirical data, this research aims to provide a realistic depiction of how underwater vehicles interact with their aquatic environment.
+This **projeto integrador - PIC2** presents the advancements and methodologies involved in simulating and visualizing the fluid dynamics around underwater vehicles. By combining theoretical frameworks with empirical data, this research aims to provide a realistic depiction of how underwater vehicles interact with their aquatic environment.
 
 ## Author
 Yosef Shmuel Guevara Salamanca
@@ -39,7 +40,7 @@ Detailed chapters and sections as listed in the document.
 This work contributes to the understanding of the physical interactions between robotic systems and their marine environment, offering potential improvements in the design and operation of underwater vehicles.
 
 ## Licensing
-This document is part of a master thesis and is subjected to university regulations concerning academic integrity and use of the materials. 
+This document is part of a **projeto integrador - PIC2** and is subjected to university regulations concerning academic integrity and use of the materials. 
 
 ---
 
