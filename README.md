@@ -9,7 +9,7 @@ Yosef Shmuel Guevara Salamanca
 
 ## Supervisors
 - Professor Rodrigo Ventura, Institute for Systems and Robotics (ISR-Lisbon)
-- Giang Nguyen, University of Bremen, Institute for Artificial Intelligence
+- Professor Vicent Hugel, Laboratorie Cosmer (Université de Toulon)
 
 ## Institution
 Instituto Superior Técnico and Universität Bremen
